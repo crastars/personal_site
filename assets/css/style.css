@@ -316,7 +316,7 @@ main {
 
 .sidebar {
   margin-bottom: 15px;
-  max-height: 112px;
+  max-height: 180px;
   overflow: hidden;
   transition: var(--transition-2);
 }
@@ -333,7 +333,7 @@ main {
 
 .avatar-box {
   background: var(--bg-gradient-onyx);
-  border-radius: 50%;
+  border-radius: 30%;
   overflow: hidden;
 }
 
@@ -341,6 +341,14 @@ main {
   width: 100%;
   height: auto;
   object-fit: cover;
+}
+
+.info-content{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items:center;
+  
 }
 .info-content .name {
   color: var(--white-2);
@@ -421,6 +429,26 @@ main {
   width: calc(100% - 46px);
 }
 
+.btn_max{
+ 
+  display: inline-block;
+  padding: 3px 12px;
+  background: #c1a207;
+  color: var(--white-1);
+  text-transform: uppercase;
+  font-size: var(--fs-8);
+  font-weight: var(--fw-300);
+  border-radius: 8px;
+  box-shadow: var(--shadow-2);
+  transition: var(--transition-1);
+  text-decoration: none;
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Ensure icon is vertically aligned */
+  width: max-content; /* Ensure button size is minimal */
+
+}
 .contact-title {
   color: var(--light-gray-70);
   font-size: var(--fs-8);
@@ -973,12 +1001,17 @@ main {
   }
 }
 
-
 /*-----------------------------------*\
   #PORTFOLIO
 \*-----------------------------------*/
 
-.filter-list { display: none; }
+.filter-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 10px 0;
+}
 
 .filter-select-box {
   position: relative;
@@ -1034,7 +1067,6 @@ main {
 }
 
 .select-item button:hover { --eerie-black-2: hsl(240, 2%, 20%); }
-
 .project-list {
   display: grid;
   grid-template-columns: 1fr;
@@ -1081,7 +1113,6 @@ main {
 
 .project-item-icon-box {
   --scale: 0.8;
-
   background: var(--jet);
   color: var(--orange-yellow-crayola);
   position: absolute;
@@ -1129,9 +1160,42 @@ main {
   font-weight: var(--fw-300);
 }
 
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+  .filter-list {
+    display: none;
+  }
 
+  .filter-select-box {
+    display: block;
+    margin-bottom: 25px;
+  }
 
+  .project-list {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
 
+  .project-img {
+    height: 150px; /* Adjust the height for mobile */
+  }
+
+  .project-title,
+  .project-category {
+    text-align: center;
+    margin-left: 0; /* Center align text on mobile */
+  }
+
+  .project-item-icon-box {
+    font-size: 16px;
+    padding: 12px;
+  }
+
+  .project-item > a:hover .project-item-icon-box {
+    --scale: 1;
+    opacity: 1;
+  }
+}
 
 /*-----------------------------------*\
   #BLOG
@@ -1390,6 +1454,40 @@ textarea.form-input::-webkit-resizer { display: none; }
   /**
    * #REUSED STYLE
    */
+/* Style for the button */
+/* Style for the button */
+/* Style for the button */
+/* Style for the button */
+.btn {
+  display: inline-block;
+  padding: 3px 12px;
+  background: #c1a207;
+  color: var(--white-1);
+  text-transform: uppercase;
+  font-size: var(--fs-8);
+  font-weight: var(--fw-300);
+  border-radius: 8px;
+  box-shadow: var(--shadow-2);
+  transition: var(--transition-1);
+  text-decoration: none;
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Ensure icon is vertically aligned */
+  width: max-content; /* Ensure button size is minimal */
+}
+
+
+.btn span {
+  margin-right: 5px; /* Add some space between text and icon */
+}
+
+.btn ion-icon {
+  font-size: 1.2em; /* Adjust icon size */
+}
+
+
+
 
   .sidebar, article {
     width: 520px;
@@ -1442,7 +1540,6 @@ textarea.form-input::-webkit-resizer { display: none; }
 
   .avatar-box { border-radius: 30px; }
 
-  .avatar-box img { width: 120px; }
 
   .info-content .name { margin-bottom: 15px; }
 
@@ -1938,7 +2035,7 @@ textarea.form-input::-webkit-resizer { display: none; }
 
   .sidebar-info { flex-direction: column; }
 
-  .avatar-box img { width: 150px; }
+
 
   .info-content .name {
     white-space: nowrap;
@@ -1983,3 +2080,43 @@ textarea.form-input::-webkit-resizer { display: none; }
   .timeline-text { max-width: 700px; }
 
 }
+.contact-page-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height:auto; /* Adjust height as needed */
+  background: var(--card-bg);
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+}
+
+.contact-page-details {
+  text-align: center;
+  font-size: 1.5em; /* Increase font size */
+  font-weight: var(--fw-400);
+  color: var(--light-gray);
+  line-height: 1.6;
+}
+
+.contact-page-details p {
+  margin: 10px 0; /* Increase spacing between items */
+}
+
+.contact-page-details a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white-1);
+  text-decoration: none;
+  font-weight: var(--fw-600); /* Make links bold */
+  background-color: #c1a207; /* Same background as resume */
+  border-radius: 8px; /* Slightly rounded borders */
+  padding: 3px 12px; /* Adjust padding to match the button */
+  display: inline-block; /* Ensures the background and border-radius are applied correctly */
+}
+
+
+.contact-page-details a:hover {
+  text-decoration: underline;
+}
+
